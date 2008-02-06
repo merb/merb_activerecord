@@ -1,9 +1,11 @@
-require 'merb'
-class DatabaseSessionsMigrationGenerator < RubiGen::Base
+class DatabaseSessionsMigrationGenerator < Merb::GeneratorBase
   
   default_options :author => nil
 
   def initialize(runtime_args, runtime_options = {})
+    # put somthing into the runtime_args so that super doesn't show the 
+    # description
+    runtime_args.push ""
     super
     @name = 'database_sessions'
   end
